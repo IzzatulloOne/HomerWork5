@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% extends 'base.html' %}
+
+    {% block title %}Главная страница{% endblock %}
+
+    {% block content %}
+        <h2>Добро пожаловать на наш сайт!</h2>
+        <p>Здесь вы найдете информацию о наших автомобилях.</p>
+        
+        <ul>
+            {% for car in cars %}
+                <li><a href="{% url 'car_detail' car.id %}">{{ car.name }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endblock %}
+</body>
+</html>
+
